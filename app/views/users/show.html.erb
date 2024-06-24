@@ -8,6 +8,7 @@
     <header></header>
 
     <main>
+      <div><%= flash[:notice] %></div>
       <h2>User info</h2>
           <p>
             <% if @user.image.attached? %>
