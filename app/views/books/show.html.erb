@@ -23,8 +23,8 @@
               
               <h2>User info</h2>
                   <p>
-                    <% if @user.image.attached? %>
-                      <%= image_tag @user.image, size: "100x100" %>
+                    <% if @user.profile_image.attached? %>
+                      <%= image_tag @user.profile_image, size: "100x100" %>
                         <% else %>
                           <%= image_tag 'default_image', size: "100x100" %>
                     <% end %>
@@ -60,8 +60,8 @@
           </tr>
             <tr>
              <td>
-                <% if @user.image.attached? %>
-                  <%= image_tag @user.image, size: "100x100" %>
+                <% if @user.profile_image.attached? %>
+                  <%= image_tag @user.profile_image, size: "100x100" %>
                     <% else %>
                       <%= image_tag 'default_image', size: "100x100" %>
                 <% end %><br>

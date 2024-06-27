@@ -15,7 +15,7 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#000000;">
         <div class="container">
-          <a class="navbar-brand p-3" href="/"><%= image_tag('logo.png') %></a>
+          <a class="navbar-brand p-auto"><%= link_to "Bookers", top_path %></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,9 +23,6 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
-         <li class="nav-item">
-          <%= link_to "Bookers", top_path, class: 'nav-link text-white' %>
-        </li>
          <li class="nav-item">
           <%= link_to "Home", user_path(current_user.id), class: 'nav-link text-white' %>
         </li>
@@ -39,9 +36,6 @@
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
         </li>
       <% else %>
-         <li class="nav-item">
-          <%= link_to "Bookers", top_path, class: 'nav-link text-white' %>
-        </li>
          <li class="nav-item">
           <%= link_to "Home", top_path, class: 'nav-link text-white' %>
         </li>
