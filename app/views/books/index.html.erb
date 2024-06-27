@@ -8,6 +8,11 @@
     <header></header>
 
     <main>
+      <div class="container">
+          <div class="row align-items-start">
+            
+      <div class="col-md-3">
+        
         <% if @book.errors.any? %>
         <%= @book.errors.count %>error
         <ul>
@@ -16,7 +21,7 @@
         <% end %>
         </ul>
         <% end %>
-      
+
       <h2>User info</h2>
           <p>
             <% if @user.image.attached? %>
@@ -42,9 +47,12 @@
             <%= f.submit 'Creat Book' %>
           </li>
             <% end %>
+      </div>
 
+         <div class="offset-md-1"></div>
+           <div class="col-md-8">
       <h2>Books</h2>
-        <table>
+        <table class="table table-striped">
           <tr>
             <th></th>
             <th>Title</th>
@@ -64,9 +72,13 @@
             </tr>
           <% end %>
         </table>
+        </div>
+      </div>
     </main>
   </body>
 
   <footer>
-    <p>CopyRight Infratop.inc</p>
+    <div class="row justify-content-center">
+     <p>CopyRight Infratop.inc</p>
+    </div>
   </footer>
