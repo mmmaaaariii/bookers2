@@ -13,10 +13,10 @@
             
       <div class="col-md-3">
         
-        <% if @book.errors.any? %>
-        <%= @book.errors.count %>error
+        <% if @book_new.errors.any? %>
+        <%= @book_new.errors.count %>error
         <ul>
-        <% @book.errors.full_messages.each do |message| %>
+        <% @book_new.errors.full_messages.each do |message| %>
         <li><%= message %></li>
         <% end %>
         </ul>
@@ -32,20 +32,20 @@
           </p>
           <p>name：<%= @user.name %></p>
           <p>introduction：<%= @user.introduction %></p>
-          <li>
-            <%= link_to "Edit", edit_user_path(@user.id) %>
-          </li>
+                    <button type="button" class="btn btn-outline-secondary">
+                    <%= link_to edit_user_path(@user.id) do %>
+                    <i class="fa-solid fa-user-gear"></i>
+                    <% end %>
+                    </button>
     
     
           <h2>New book</h2>
-            <%= form_with model: @book do |f| %>
+            <%= form_with model: @book_new do |f| %>
           <h4>Title</h4>
             <%= f.text_field :title %>
           <h4>Opinion</h4>
             <%= f.text_area :body %>
-          <li>
-            <%= f.submit 'Creat Book' %>
-          </li>
+            <button class="btn btn-success, text-light"><%= f.submit "Create Book"%></button>
             <% end %>
       </div>
 
@@ -62,9 +62,13 @@
             <tr>
              <td>
                 <% if book.user.profile_image.attached? %>
-                  <%= image_tag book.user.profile_image, size: "100x100" %>
+                  <%= link_to user_path(book.user_id) do %>
+                     <%= image_tag book.user.profile_image, size: "100x100" %>
+                  <% end %>
                     <% else %>
-                      <%= image_tag 'default_image', size: "100x100" %>
+                      <%= link_to user_path(book.user_id) do %>
+                        <%= image_tag 'default_image', size: "100x100" %>
+                      <% end %>
                 <% end %>
               </td>
               <td> <%= link_to book.title, book_path(book.id) %> </td>

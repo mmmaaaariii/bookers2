@@ -5,9 +5,8 @@
   </head>
 
   <body>
-    <header></header>
-
     <main>
+      <div class="container">
         <h2>User info</h2>
         
         <% if @user.errors.any? %>
@@ -20,14 +19,17 @@
         <% end %>
         
         <%= form_with model: @user do |f| %>
-          <label for="inputName">Name</label>
+          <div for="inputName">Name</div>
           <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"Name"%>
-          <label for="inputImage">Image</label>
+          <div for="inputImage">Image</div>
           <%= f.file_field :profile_image, placeholder:  "inputProfile_image", accept: "images/*" %>  
-          <label for="inputIntroduction">Introduction</label>
+          <div for="inputIntroduction">Introduction</div>
           <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"Introduction"%>
-          <%= f.submit "Update User" %>
+          <p>
+            <button class="btn btn-success, text-light"><%= f.submit "Update User"%></button>
+          </p>
         <% end %>
+      </div>
     </main>
   </body>
 

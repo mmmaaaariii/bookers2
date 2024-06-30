@@ -5,9 +5,8 @@
   </head>
 
   <body>
-    <header></header>
-
     <main>
+      <div class="container">
         <h2>Editing Book</h2>
         <% if @book.errors.any? %>
         <%= @book.errors.count %>error
@@ -19,12 +18,14 @@
         <% end %>
         
         <%= form_with model: @book do |f| %>
-          <label for="inputTitle">Title</label>
+          <div for="inputTitle">Title</div>
           <%= f.text_field :title, autofocus: true, id:"inputTitle", placeholder:"Title"%>
-          <label for="inputOpinion">Opinion</label>
+          <div for="inputOpinion">Opinion</div>
           <%= f.text_field :body, autofocus: true, id:"inputOpinion", placeholder:"Opinion"%>
+          <div></div>
           <%= f.submit "Update Book" %>
         <% end %>
+        
         <table>
           <tr>
             <th></th>
@@ -38,6 +39,7 @@
               <td> <%= link_to "Back", books_path %> </td>
             </tr>
         </table>
+      </div>
     </main>
   </body>
 
