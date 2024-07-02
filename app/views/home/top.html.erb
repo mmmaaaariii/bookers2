@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Bookers2</title>
-  </head>
 
-  <body>
-    <main>
     <div class="container">
       <div><%= flash[:notice] %></div>
       <h1>welcome to <i class="fa-solid fa-book"></i> Bookers !!</h1>
@@ -13,19 +6,11 @@
       <p>you can share and exchange your opinions , inpressions , and emotions</p>
       <p>about various books!</p>
       <p>
-        <button type="button" class="btn btn-info"><%= link_to "Log in", new_user_session_path, class:"text-light"%></button>
+        <%= link_to "Log in", new_user_session_path, class:"text-light btn btn-info"%>
       </p>
       <p>
-        <button type="button" class="btn btn-success"><%= link_to "Sign up", new_user_registration_path, class:"text-light" %></button>
+        <%= link_to "Sign up", new_user_registration_path, class:"text-light btn btn-success" %>
       </p>
-    </main>
-  </body>
-
-  <footer>
-    <div class="row justify-content-center">
-     <p>CopyRight Infratop.inc</p>
-       </footer>
-    </div>
    </div>
 
 

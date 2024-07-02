@@ -1,8 +1,8 @@
 
             <div class="col-md-3">
-
+            <%= flash[:notice] %>
             <% if book.errors.any? %>
-            <%= book.errors.count %>error
+            <%= book.errors.count %>errors
             <ul>
             <% book.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -20,11 +20,12 @@
                   </p>
                   <p>name：<%= user.name %></p>
                   <p>introduction：<%= user.introduction %></p>
-                    <button type="button" class="btn btn-outline-secondary">
-                    <%= link_to edit_user_path(user.id) do %>
+                  <p>
+                    <%= link_to edit_user_path(user.id), class:"btn btn-outline-secondary" do %>
                     <i class="fa-solid fa-user-gear"></i>
                     <% end %>
-                    </button>
+                  </p>
+
 
                   <h2>New book</h2>
                     <%= form_with model: book do |f| %>
@@ -32,6 +33,8 @@
                     <%= f.text_field :title %>
                   <h4>Opinion</h4>
                     <%= f.text_area :body %>
-                    <button class="btn btn-success, text-light"><%= f.submit "Create Book"%></button>
-                    <% end %>
+                  <p>
+                  <%= f.submit "Create Book", class:"btn btn-success"%>
+                  </p>
+                  <% end %>
              </div>

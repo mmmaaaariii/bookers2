@@ -1,54 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Bookers2</title>
-  </head>
 
-  <body>
-    <header></header>
-    <main>
-      <div><%= flash[:notice] %></div>
-        <div class="container">
-          <div class="row align-items-start">
-            <div class="col-md-3">
+      <div class="container">
+          <div class="row">
+            <%= render '/users/info', book: @book_new, user: @user %>
+      
 
-            <% if @book.errors.any? %>
-            <%= @book.errors.count %>error
-            <ul>
-            <% @book.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-            </ul>
-            <% end %>
-
-              <h2>User info</h2>
-                  <p>
-                    <% if @user.profile_image.attached? %>
-                      <%= image_tag @user.profile_image, size: "100x100" %>
-                        <% else %>
-                          <%= image_tag 'default_image', size: "100x100" %>
-                    <% end %>
-                  </p>
-                  <p>name：<%= @user.name %></p>
-                  <p>introduction：<%= @user.introduction %></p>
-                    <button type="button" class="btn btn-outline-secondary">
-                    <%= link_to edit_user_path(@user.id) do %>
-                    <i class="fa-solid fa-user-gear"></i>
-                    <% end %>
-                    </button>
-
-                  <h2>New book</h2>
-                    <%= form_with model: @book_new do |f| %>
-                  <h4>Title</h4>
-                    <%= f.text_field :title %>
-                  <h4>Opinion</h4>
-                    <%= f.text_area :body %>
-                    <button class="btn btn-success, text-light"><%= f.submit "Create Book"%></button>
-                    <% end %>
-             </div>
-
-         <div class="offset-md-1"></div>
-           <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
         <table class="table table-striped">
           <tr>
@@ -70,21 +26,13 @@
               <td> <%= link_to @book.title, book_path(@book.id) %> </td>
               <td> <%= @book.body %> </td>
               <td> <% if @book.user == current_user %>
-                   <%= link_to "Edit", edit_book_path(@book.id) %></td>
+                   <%= link_to "Edit", edit_book_path(@book.id), class:"text-light btn btn-success" %></td>
                    <% end %>
               <td> <% if @book.user == current_user %>
-                   <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+                   <%= link_to "Destroy", book_path(@book.id), method: :delete, class:"text-light btn btn-danger", "data-confirm" => "本当に消しますか？" %>
                    <% end %>
               </td>
             </tr>
           </table>
         </div>
       </div>
-    </main>
-  </body>
-
-  <footer>
-    <div class="row justify-content-center">
-     <p>CopyRight Infratop.inc</p>
-    </div>
-  </footer>

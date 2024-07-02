@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Bookers2</title>
-  </head>
 
-  <body>
-    <main>
       <div class="container">
         <h2>Editing Book</h2>
         <% if @book.errors.any? %>
-        <%= @book.errors.count %>error
+        <%= @book.errors.count %>errors
         <ul>
         <% @book.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -40,11 +33,3 @@
             </tr>
         </table>
       </div>
-    </main>
-  </body>
-
-  <footer>
-    <div class="row justify-content-center">
-     <p>CopyRight Infratop.inc</p>
-    </div>
-  </footer>
